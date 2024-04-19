@@ -54,6 +54,10 @@ func (s *Snapshot) Get(key []byte) ([]byte, io.Closer, error) {
 	return s.db.getInternal(key, nil /* batch */, s)
 }
 
+func (s *Snapshot) Seq() uint64 {
+	return s.seqNum
+}
+
 // NewIter returns an iterator that is unpositioned (Iterator.Valid() will
 // return false). The iterator can be positioned via a call to SeekGE,
 // SeekLT, First or Last.

@@ -319,6 +319,10 @@ type Iterator struct {
 	nextPrefixNotPermittedByUpperBound bool
 }
 
+func (i *Iterator) Seq() uint64 {
+	return i.seqNum
+}
+
 // cmp is a convenience shorthand for the i.comparer.Compare function.
 func (i *Iterator) cmp(a, b []byte) int {
 	return i.comparer.Compare(a, b)
